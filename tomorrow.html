@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiss Tomorrow?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background-color: #FFCCCB; /* Light pink background */
+        }
+        #container {
+            display: inline-block;
+            text-align: center;
+        }
+        #question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        #noBtn {
+            position: absolute;
+        }
+        /* Modal styles */
+        #dialogueBox {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 5;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="question">Would you like to kiss tomorrow?</div>
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+    </div>
+
+    <!-- Modal Dialogue -->
+    <div id="overlay"></div>
+    <div id="dialogueBox">
+        <p>I knew it you would say yes! Meet me tomorrow after the exam. I love you Nishu!</p>
+        <button id="closeBtn">Close</button>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById("yesBtn");
+        const noBtn = document.getElementById("noBtn");
+        const dialogueBox = document.getElementById("dialogueBox");
+        const overlay = document.getElementById("overlay");
+        const closeBtn = document.getElementById("closeBtn");
+
+        yesBtn.addEventListener("click", function() {
+            // Show the dialogue box and overlay
+            dialogueBox.style.display = "block";
+            overlay.style.display = "block";
+        });
+
+        closeBtn.addEventListener("click", function() {
+            // Close the dialogue box and overlay
+            dialogueBox.style.display = "none";
+            overlay.style.display = "none";
+        });
+
+        noBtn.addEventListener("mouseover", function() {
+            // Randomly move the button to a different position
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        });
+    </script>
+</body>
+</html>
